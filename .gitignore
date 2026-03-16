@@ -173,4 +173,7 @@ dist
 *_BASE_*.txt
 *_LOCAL_*.txt
 
+.vscode/
+.vscode/*
+
 # End of https://www.toptal.com/developers/gitignore/api/nextjs,node
