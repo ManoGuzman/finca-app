@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MapPin, Star, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const categories = ["Todos", "América", "Europa", "Aventura", "Exóticos"];
 
@@ -120,11 +121,10 @@ export default function PackagesSection() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                activeCategory === cat
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeCategory === cat
                   ? "bg-primary text-primary-foreground shadow-lg scale-105"
                   : "bg-background text-muted-foreground border hover:border-primary hover:text-primary"
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -141,12 +141,12 @@ export default function PackagesSection() {
             >
               {/* Image */}
               <div className="relative overflow-hidden h-52">
-                <img
+                <Image
                   src={pkg.image}
                   alt={pkg.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
                 <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full shadow">
                   {pkg.badge}
                 </span>

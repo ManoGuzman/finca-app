@@ -1,5 +1,6 @@
 import { CheckCircle2, Plane, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const stats = [
   { icon: <Plane className="w-5 h-5" />, value: "25+", label: "Años de experiencia" },
@@ -24,12 +25,12 @@ export default function AboutSection() {
           {/* Image side */}
           <div className="relative animate-slideInLeft">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=700&q=80"
                 alt="About La Finca Tours"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-125 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-primary/40 to-transparent" />
             </div>
 
             {/* Floating stats card */}
@@ -40,7 +41,7 @@ export default function AboutSection() {
                     {s.icon}
                   </div>
                   <p className="text-2xl font-extrabold text-primary">{s.value}</p>
-                  <p className="text-xs text-muted-foreground leading-tight max-w-[60px]">{s.label}</p>
+                  <p className="text-xs text-muted-foreground leading-tight max-w-15">{s.label}</p>
                 </div>
               ))}
             </div>

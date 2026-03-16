@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -58,7 +59,7 @@ export default function TestimonialsSection() {
       <div className="absolute inset-0 gradient-hero opacity-5" />
       <div className="absolute top-0 left-0 right-0">
         <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
-          <path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="hsl(var(--muted) / 0.3)"/>
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="hsl(var(--muted) / 0.3)" />
         </svg>
       </div>
 
@@ -79,7 +80,7 @@ export default function TestimonialsSection() {
             <Quote className="absolute top-6 right-8 w-20 h-20 text-primary/10" />
 
             <div className="flex items-center gap-4 mb-6">
-              <img
+              <Image
                 src={testimonials[current].avatar}
                 alt={testimonials[current].name}
                 className="w-16 h-16 rounded-full object-cover ring-4 ring-primary/20"
@@ -102,7 +103,7 @@ export default function TestimonialsSection() {
             </div>
 
             <p className="text-lg leading-relaxed text-muted-foreground italic">
-              "{testimonials[current].text}"
+              &ldquo;{testimonials[current].text}&rdquo;
             </p>
           </div>
 
@@ -138,13 +139,12 @@ export default function TestimonialsSection() {
             <button
               key={i}
               onClick={() => { setAuto(false); setCurrent(i); }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-200 text-sm ${
-                i === current
-                  ? "border-primary bg-primary/10 text-primary font-semibold"
-                  : "border-border text-muted-foreground hover:border-primary/50"
-              }`}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-200 text-sm ${i === current
+                ? "border-primary bg-primary/10 text-primary font-semibold"
+                : "border-border text-muted-foreground hover:border-primary/50"
+                }`}
             >
-              <img src={t.avatar} alt={t.name} className="w-6 h-6 rounded-full" />
+              <Image src={t.avatar} alt={t.name} className="w-6 h-6 rounded-full" />
               <span className="hidden sm:inline">{t.name.split(" ")[0]}</span>
             </button>
           ))}

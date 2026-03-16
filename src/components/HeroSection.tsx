@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const slides = [
   {
@@ -38,19 +39,19 @@ export default function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
 
-  const goto = (index: number) => {
+  const goto = useCallback((index: number) => {
     if (animating) return;
     setAnimating(true);
     setTimeout(() => {
       setCurrent((index + slides.length) % slides.length);
       setAnimating(false);
     }, 300);
-  };
+  }, [animating]);
 
   useEffect(() => {
     const interval = setInterval(() => goto(current + 1), 5000);
     return () => clearInterval(interval);
-  }, [current]);
+  }, [current, goto]);
 
   const slide = slides[current];
 
@@ -58,7 +59,7 @@ export default function HeroSection() {
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image with overlay */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src={slide.image}
           alt="Hero background"
           className={`w-full h-full object-cover transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}
@@ -70,16 +71,15 @@ export default function HeroSection() {
       {/* Wave bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="white"/>
+          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="white" />
         </svg>
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20 pb-24">
         <div
-          className={`max-w-3xl transition-all duration-500 ${
-            animating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
-          }`}
+          className={`max-w-3xl transition-all duration-500 ${animating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+            }`}
         >
           <span className="inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fadeInUp">
             {slide.badge}
@@ -148,9 +148,8 @@ export default function HeroSection() {
           <button
             key={i}
             onClick={() => goto(i)}
-            className={`rounded-full transition-all duration-300 ${
-              i === current ? "w-8 h-3 bg-accent" : "w-3 h-3 bg-white/50"
-            }`}
+            className={`rounded-full transition-all duration-300 ${i === current ? "w-8 h-3 bg-accent" : "w-3 h-3 bg-white/50"
+              }`}
           />
         ))}
       </div>

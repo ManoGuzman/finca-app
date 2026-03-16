@@ -35,7 +35,7 @@ export default function FeaturesSection() {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`flex flex-col items-center text-center p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition-all duration-300 bg-gradient-to-br ${f.color} text-white cursor-default`}
+              className={`flex flex-col items-center text-center p-6 rounded-2xl shadow-lg hover:-translate-y-2 transition-all duration-300 bg-linear-to-br ${f.color} text-white cursor-default`}
               style={{ animationDelay: `${i * 0.15}s` }}
             >
               <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-4 backdrop-blur-sm">
