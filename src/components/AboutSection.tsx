@@ -24,11 +24,12 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image side */}
           <div className="relative animate-slideInLeft">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-125">
               <Image
                 src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=700&q=80"
                 alt="About La Finca Tours"
-                className="w-full h-125 object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-primary/40 to-transparent" />
             </div>

@@ -62,7 +62,8 @@ export default function HeroSection() {
         <Image
           src={slide.image}
           alt="Hero background"
-          className={`w-full h-full object-cover transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}
+          fill
+          className={`object-cover transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}
         />
         <div className="absolute inset-0 gradient-hero opacity-75" />
         <div className="absolute inset-0 bg-black/20" />

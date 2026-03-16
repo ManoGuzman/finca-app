@@ -83,6 +83,8 @@ export default function TestimonialsSection() {
               <Image
                 src={testimonials[current].avatar}
                 alt={testimonials[current].name}
+                width={64}
+                height={64}
                 className="w-16 h-16 rounded-full object-cover ring-4 ring-primary/20"
               />
               <div>
@@ -144,7 +146,7 @@ export default function TestimonialsSection() {
                 : "border-border text-muted-foreground hover:border-primary/50"
                 }`}
             >
-              <Image src={t.avatar} alt={t.name} className="w-6 h-6 rounded-full" />
+              <Image src={t.avatar} alt={t.name} width={24} height={24} className="w-6 h-6 rounded-full" />
               <span className="hidden sm:inline">{t.name.split(" ")[0]}</span>
             </button>
           ))}

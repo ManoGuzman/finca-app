@@ -24,7 +24,7 @@ const packages = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
     badge: "⭐ Destacado",
     category: "América",
     title: "Bogotá Cultural",
@@ -144,7 +144,8 @@ export default function PackagesSection() {
                 <Image
                   src={pkg.image}
                   alt={pkg.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
                 <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full shadow">
