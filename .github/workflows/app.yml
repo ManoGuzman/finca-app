@@ -1,0 +1,64 @@
+name: Finca App CI
+
+on:
+  push:
+    branches: [master, feature-*]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Enable corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run ESLint
+        run: pnpm lint
+
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: lint
+  #   strategy:
+  #     matrix:
+  #       node-version: [22, 24]
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v6
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - name: Enable corepack
+  #       run: corepack enable
+  #     - name: Install dependencies
+  #       run: pnpm install
+  #     - name: Run tests
+  #       run: pnpm jest
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   strategy:
+  #     matrix:
+  #       node-version: [22, 24]
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v6
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - name: Enable corepack
+  #       run: corepack enable
+  #     - name: Install dependencies
+  #       run: pnpm install
+  #     - name: Build
+  #       run: pnpm build
