@@ -220,7 +220,7 @@ Project Link: [https://github.com/ManoGuzman/finca-app](https://github.com/ManoG
 [license-shield]: https://img.shields.io/github/license/ManoGuzman/finca-app.svg?style=for-the-badge
 [license-url]: https://github.com/ManoGuzman/finca-app/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/manuel-guzman-b87b841bb/
+[linkedin-url]: https://linkedin.com/in/manuel-guzmán-b87b841bb/
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
